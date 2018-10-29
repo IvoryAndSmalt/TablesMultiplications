@@ -35,9 +35,43 @@
 
         for ($i=1; $i <= 10 ; $i++) { 
             echo "<p>" . $i . "x" . $multi . "=" . $i*$multi . "</p>"; 
-        }
-    
+        }    
 	?>
+
+<form action="" method="post">
+<label class="heading">Sélectionnez les tables que vous voulez afficher : </label>
+<input type="checkbox" name="check_list[]" value="1"><label>1</label>
+<input type="checkbox" name="check_list[]" value="2"><label>2</label>
+<input type="checkbox" name="check_list[]" value="3"><label>3</label>
+<input type="checkbox" name="check_list[]" value="4"><label>4</label>
+<input type="checkbox" name="check_list[]" value="5"><label>5</label>
+<input type="checkbox" name="check_list[]" value="6"><label>6</label>
+<input type="checkbox" name="check_list[]" value="7"><label>7</label>
+<input type="checkbox" name="check_list[]" value="8"><label>8</label>
+<input type="checkbox" name="check_list[]" value="9"><label>9</label>
+<input type="checkbox" name="check_list[]" value="10"><label>10</label>
+<input type="submit" name="submit" Value="Submit"/>
+<!----- Including PHP Script ----->
+
+</form>
+
+<?php
+
+if(isset($_POST['submit'])){
+    // Loop to store and display values of individual checked checkbox.
+    foreach($_POST['check_list'] as $selected) {
+        echo "<p>Table du " . $selected . " :</p>";
+
+        for ($i=1; $i <= 10 ; $i++) { 
+            echo "<p>" . $i . "x" . $selected . "=" . $i*$selected . "</p>"; 
+        }
+}
+}
+    else{
+    echo "<b>Veuillez cocher au moins une option.</b>";
+    }
+
+?>
 
 </body>
 
