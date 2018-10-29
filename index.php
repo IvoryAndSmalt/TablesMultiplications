@@ -31,11 +31,22 @@
 
 <?php
     $multi = $_POST['multi'];
-    echo "<p>Table du " . $multi . " :</p>";
+
+    if(isset($multi)) {
+        echo "<p>Table du " . $multi . " :</p>";
 
         for ($i=1; $i <= 10 ; $i++) { 
             echo "<p>" . $i . "x" . $multi . "=" . $i*$multi . "</p>"; 
-        }    
+        }  
+    }
+    else {
+        echo "<p>Table du " . 0 . " :</p>";
+
+        for ($i=1; $i <= 10 ; $i++) { 
+            echo "<p>" . $i . "x" . 0 . "=" . $i*0 . "</p>"; 
+        }   
+    }
+    
 	?>
 
 <form action="" method="post">
