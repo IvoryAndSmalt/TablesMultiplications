@@ -83,54 +83,40 @@ if(isset($_POST['submit'])){
     }
 ?>
 
-<form action="" method="post">
+<form action="revision.php" method="post">
 <label class="heading">Sélectionnez un table à réviser: </label>
 <input type="radio" name="check_list" value="1"><label>1</label>
+<input type="radio" name="check_list" value="2"><label>2</label>
 <input type="radio" name="check_list" value="3"><label>3</label>
 <input type="radio" name="check_list" value="4"><label>4</label>
-<input type="radio" name="check_list" value="2"><label>2</label>
 <input type="radio" name="check_list" value="5"><label>5</label>
 <input type="radio" name="check_list" value="6"><label>6</label>
 <input type="radio" name="check_list" value="7"><label>7</label>
 <input type="radio" name="check_list" value="8"><label>8</label>
 <input type="radio" name="check_list" value="9"><label>9</label>
 <input type="radio" name="check_list" value="10"><label>10</label>
-<input type="submit" name="revision" Value="Submit"/>
+<input type="submit" name="revision" Value="Réviser !"/>
 <!----- Including PHP Script ----->
 
 </form>
 
-<form action="" method="post">
-<input type="text" name="input"><label>Réponse : </label>
-<input type="submit" name="reponse" Value="Valider"/>
-</form>
-
 <?php
+
+session_start();
 
 $revision = $_POST["check_list"];
 
 if(isset($_POST['revision'])){
-        echo "<p>Réviser la table du " . $revision. " :</p>";
 
-       $random = rand(1,10);
-       echo "<p>" . $random ."X". $revision . " = </p>";
+       $_SESSION['check_list'] = $_POST['check_list'];
 
-            // echo "<p>" . $random. "x" . $revision . "=" . "<input type="submit" name="reponse" value="valider">""</p>"; 
-        
 }
     else{
     echo "<b>Veuillez cocher au moins une option.</b>";
     }
 
-$essai = $_POST['input'];
-$test = $revision;
-
-if(isset($essai)){
-    echo $essai;
-    echo $test;
-}
-
 ?>
+
 </body>
 
 </html>
