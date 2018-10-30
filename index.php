@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
 <p>
 <form action="" method="post">
 	Choisissez la table
@@ -30,6 +29,7 @@
 </p>
 
 <?php
+
     $multi = $_POST['multi'];
 
     if(isset($multi)) {
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
     echo "<b>Veuillez cocher au moins une option.</b>";
     }
 ?>
-
+<?php session_abort();?>
 <form action="revision.php" method="post">
 <label class="heading">Sélectionnez un table à réviser: </label>
 <input type="radio" name="check_list" value="1"><label>1</label>
@@ -96,26 +96,8 @@ if(isset($_POST['submit'])){
 <input type="radio" name="check_list" value="9"><label>9</label>
 <input type="radio" name="check_list" value="10"><label>10</label>
 <input type="submit" name="revision" Value="Réviser !"/>
-<!----- Including PHP Script ----->
-
 </form>
 
-<?php
-
-session_start();
-
-$revision = $_POST["check_list"];
-
-if(isset($_POST['revision'])){
-
-       $_SESSION['check_list'] = $_POST['check_list'];
-
-}
-    else{
-    echo "<b>Veuillez cocher au moins une option.</b>";
-    }
-
-?>
 
 </body>
 
