@@ -16,49 +16,41 @@
 
 <?php
 
-if (isset($_POST['check_list']) && (!isset($random))) {
-
     $_SESSION['check_list'] = $_POST['check_list'];
     $sessionCL = $_SESSION['check_list'];
-    $_SESSION['random'] = rand(1, 10);
-    $random = $_SESSION['random'];
-    echo "<p>Réviser la table du " . $sessionCL . " :</p>";
-    echo "<p>" . $random . "X" . $sessionCL . " = </p>";
 
-} 
-else if (isset($_POST['check_list']) && isset($random)) {
-
-    $_SESSION['check_list'] = $checklist;
+    if (isset($_POST['check_list'])) {
     $sessionCL = $_SESSION['check_list'];
+    $random = rand(1,10);
     echo "<p>Réviser la table du " . $sessionCL . " :</p>";
     echo "<p>" . $random . "X" . $sessionCL . " = </p>";
     ?>
 
-    <form method="post">
-    <input type="number" name="input"><label>Réponse : </label>
-    <input name="stCL" id="stockageRetS" value="<?php echo $random . "X" . $sessionCL . " = " ?>">
-    <input name="strandom" value="<?php echo $random ?>">;
-    <input name="stcheck" value="<?php echo $sessionCL ?>">;
-    <input type="submit" name="reponse" Value="Valider"/>
+    <form method="post" action="revision.php">
+    <label>Réponse : </label><input type="number" name="input">
+    <input style="display : none" name="stCL" id="stockageRetS" value="<?php echo $random . "X" . $sessionCL . " = " ?>">
+    <input style="display : none" name="reponse" value="<?php echo $random*$sessionCL ?>">
+    <input style="display : none" name="check_list" value="<?php echo $sessionCL ?>">
+    <input type="submit" name="valider" Value="Valider"/>
     </form>
-
-    <?php echo $_POST['stCL'];
-    echo $_POST['strandom'];
-    echo $_POST['stcheck'];
-
-    if (isset($_POST['input'])) {
+    
+    <?php
+    
+    if (isset($_POST['input']) && isset($_POST['reponse'])) {
+        
         $essai = $_POST['input'];
-        echo $_POST['stCL'];
-
-        echo "<p>" . $essai . "</p>";
-        if ($essai === $_POST['stcheck'] * $_POST['strandom']) {
+        if ($essai === $_POST['reponse']) {
             echo "<p>BONNE REPONSE</p>";
-            $_SESSION['random'] = rand(1, 10);
-            $random = $_SESSION['random'];
+            echo "<p>Votre réponse : " . $_POST['input'] . "</p>";
+            echo "<p>La bonne réponse : " .$_POST['reponse'] . "</br>";
         }
         else {
-            echo "MAUVAISE REPONSE";
+            echo "<p>MAUVAISE REPONSE</p>";
+            echo "<p>Votre réponse : " . $_POST['input'] . "</p>";
+            echo "<p>La bonne réponse : " .$_POST['reponse'] . "</br>";
         }
+        
+        
     }
     else {
         echo "";
@@ -67,7 +59,6 @@ else if (isset($_POST['check_list']) && isset($random)) {
 else {
     echo "Veuillez choisir une table.";
 }
-
 ?>
 
 </body>
