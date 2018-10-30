@@ -17,7 +17,7 @@ function resetscore()
     $_SESSION['score'] = 0;
 }?>
 
-<a href="revisionstables.php" id="choixdestables" class="nosboutons" onclick="resetscore()">Tables</a>
+<a href="revisiontables.php" id="choixdestables" class="nosboutons" onclick="resetscore()">Tables</a>
 <a href="index.php" class="nosboutons">Retour</a>
 
 <?php

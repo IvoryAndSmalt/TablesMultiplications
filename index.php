@@ -15,7 +15,7 @@
     </h1>
 
     <a href="tables.php" id="lestables" class="nosboutons">Les tables</a>
-    <a href="revisiontables.php" class="nosboutons" id="reviser"></a>
+    <a href="revisiontables.php" class="nosboutons" id="reviser">Réviser !</a>
 
 </body>
 
