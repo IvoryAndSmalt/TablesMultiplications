@@ -13,6 +13,6 @@
 
 //     Super Mode révision : Poser une série de 5 questions puis afficher le score.
 //     Appliquer un aspect "Material design".
-//     L'ensemble du site est reponsive.
+//     L'ensemble du site est responsive.
 
 // Une fois l'étape 4 finalisée : intégrer AJAX au mode révision afin de rendre l'utilisation du mode révision plus fluide.

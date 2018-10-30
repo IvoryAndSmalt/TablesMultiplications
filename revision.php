@@ -12,11 +12,13 @@
 
 <?php session_start();
 
-function resetscore(){
+function resetscore()
+{
     $_SESSION['score'] = 0;
 }?>
 
-<a href="index.php" id="choixdestables" class="nosboutons" onclick="resetscore()">Tables</a>
+<a href="revisionstables.php" id="choixdestables" class="nosboutons" onclick="resetscore()">Tables</a>
+<a href="index.php" class="nosboutons">Retour</a>
 
 <?php
 
@@ -40,10 +42,9 @@ if (isset($_POST['check_list'])) {
     <?php
 
     if (!isset($_SESSION['manches'])) {
-        $_SESSION['score'] = 1;
+        $_SESSION['score'] = 0;
         $_SESSION['manches'] = 1;
     }
-    echo $_SESSION['manches'];
     if (isset($_POST['input']) && isset($_POST['reponse']) && $_SESSION['manches'] < 5) {
 
         $essai = $_POST['input'];
@@ -60,15 +61,22 @@ if (isset($_POST['check_list'])) {
             $_SESSION['manches'] += 1;
         }
 
-    } else if ($_SESSION['manches'] >= 5){
+    } else if ($_SESSION['manches'] >= 5 && $_POST['input'] === $_POST['reponse']) {
+        echo "<p>La partie est terminée !</p>";
+        $_SESSION['score'] += 1;
+        $_SESSION['manches'] = 1;
+        $scorefinal = $_SESSION['score'];
+        echo "<p>Votre score : " . $scorefinal . "</p>";
+        $_SESSION['score'] = 0;
+    } else if ($_SESSION['manches'] >= 5 && $_POST['input'] != $_POST['reponse']) {
         echo "<p>La partie est terminée !</p>";
         $_SESSION['manches'] = 1;
         $scorefinal = $_SESSION['score'];
         echo "<p>Votre score : " . $scorefinal . "</p>";
         $_SESSION['score'] = 0;
-    }
-    else{
+    } else {
         echo "";
+        $_SESSION['score'] = 0;
         $_SESSION['manches'] = 1;
     }
 } else {
