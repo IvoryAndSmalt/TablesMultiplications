@@ -16,8 +16,7 @@ session_start();
 $sessionCL = $_SESSION['check_list'];
 
         echo "<p>Réviser la table du " . $sessionCL. " :</p>";
-       $_SESSION['random']=rand(1,10);
-       $random = $_SESSION['random'];
+       $random = rand(1,10);
        echo "<p>" . $random ."X". $sessionCL . " = </p>";
 
 ?>
@@ -28,14 +27,15 @@ $sessionCL = $_SESSION['check_list'];
 </form>
 
 <?php
+
 $essai = $_POST['input'];
 
 if (!empty($essai)){
     echo "<p>" . $essai . "</p>";
     echo $sessionCL*$random . "<br>";
-    if($essai == $sessionCL*$random){
+    $random = rand(1,10);
+    if($essai === $sessionCL*$random){
         echo "<p>BONNE REPONSE</p>";
-        $random = rand(1,10);
     }
     else{
         echo "MAUVAISE REPONSE";
