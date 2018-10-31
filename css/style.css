@@ -49,8 +49,48 @@ table {
 
 /**************FIN DU RESET CSS********************/
 
-p{
-	margin-bottom: 10px;
+.diva{
+	color: white !important;
+	font-family: 'Poppins', sans-serif !important;
+	font-size: 25px !important;
 }
 
+a:hover{
+	color: white;
+}
 
+.container{
+	align-items: center;
+	justify-content: center;
+}
+
+body{
+	background: #094e51;
+	color: #f0edee !important;
+	font-family: 'Poppins', sans-serif !important;
+	font-size: 25px !important;
+}
+
+.btn-vert{
+	background: #008148;
+}
+
+.btn{
+	border-radius: 30px;
+	margin-bottom: 30px;
+}
+.btn-orange{
+	background: #ff5400;
+}
+
+h1{
+	font-size: 1.5em;
+	text-transform: uppercase;
+	margin: 20px 0 50px 0;
+}
+
+.slogan{
+	font-style: italic;
+	text-align: center;
+	margin: 0px 0 50px 0;
+}
