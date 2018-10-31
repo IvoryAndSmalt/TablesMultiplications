@@ -32,8 +32,8 @@
             </p>
         </div>
         <div class="row justify-content-center">
-            <a class="diva col-6 btn btn-vert" href="tables.php">Les tables</a>
-            <a class="diva col-6 btn btn-orange" href="revisiontables.php">Réviser !</a>
+                <a class="diva col-6 btn btn-vert" href="tables.php">Les tables</a>
+                <a class="diva col-6 btn btn-orange" href="revisiontables.php">Réviser !</a>
         </div>
     </div>
 

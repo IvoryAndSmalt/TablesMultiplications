@@ -62,6 +62,7 @@ a:hover{
 .container{
 	align-items: center;
 	justify-content: center;
+	max-width: 90%;
 }
 
 body{
@@ -71,16 +72,21 @@ body{
 	font-size: 25px !important;
 }
 
-.btn-vert{
-	background: #008148;
-}
-
 .btn{
 	border-radius: 30px;
 	margin-bottom: 30px;
 }
+
+.btn-vert{
+	background: #008148;
+}
+
 .btn-orange{
 	background: #ff5400;
+}
+
+.btn-black{
+	background: #0a090c;
 }
 
 h1{
@@ -93,4 +99,16 @@ h1{
 	font-style: italic;
 	text-align: center;
 	margin: 0px 0 50px 0;
+}
+
+.labels{
+	margin-left: 5px;
+	margin-right: 15px;
+	margin-top: -20px;
+	margin-bottom: 30px;
+}
+
+.radios{
+	margin-top: -20px;
+	margin-bottom: 30px;
 }

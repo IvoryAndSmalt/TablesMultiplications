@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|Poppins" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -86,7 +87,8 @@ if (isset($_POST['check_list'])) {
         $_SESSION['score'] = 0;
         $_SESSION['manches'] = 1;
     }
-} else {
+} 
+else {
     echo "Veuillez choisir une table.";
 }
 ?>

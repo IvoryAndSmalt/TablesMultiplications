@@ -11,78 +11,56 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|Poppins" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<a href="index.php" class="nosboutons">Retour</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <a href="index.php" class="diva btn btn-vert">Retour</a>
+        </div>
 
-<!-- <form action="" method="post">
-	Choisissez la table
-    <select name="multi">
-	  <option value="1">1</option>
-	  <option value="2">2</option>
-	  <option value="3">3</option>
-	  <option value="4">4</option>
-	  <option value="5">5</option>
-	  <option value="6">6</option>
-	  <option value="7">7</option>
-	  <option value="8">8</option>
-	  <option value="9">9</option>
-	  <option value="10">10</option>
-	</select>
-    <input type="submit" value="Calculer">
-    </form>
+        <form class="myforms" action="" method="post">
+            <div class="row justify-content-center">
+                <label class="slogan">Sélectionnez les tables que vous voulez afficher :</label>
+            </div>
+            <div class="row justify-content-center">
+                <input class="radios" type="checkbox" name="check_list[]" value="1"><label class="labels" >1</label>
+                <input class="radios" type="checkbox" name="check_list[]" value="2"><label class="labels" >2</label>
+                <input class="radios" type="checkbox" name="check_list[]" value="3"><label class="labels" >3</label>
+                <input class="radios" type="checkbox" name="check_list[]" value="4"><label class="labels" >4</label>
+                <input class="radios" type="checkbox" name="check_list[]" value="5"><label class="labels" >5</label>
+            </div>
+            <div class="row justify-content-center">
+            <input class="radios" type="checkbox" name="check_list[]" value="6"><label class="labels" >6</label>
+            <input class="radios" type="checkbox" name="check_list[]" value="7"><label class="labels" >7</label>
+            <input class="radios" type="checkbox" name="check_list[]" value="8"><label class="labels" >8</label>
+            <input class="radios" type="checkbox" name="check_list[]" value="9"><label class="labels" >9</label>
+            <input class="radios" type="checkbox" name="check_list[]" value="10"><label class="labels">10</label>
+            </div>
+            <div class="row justify-content-center">
+                <input class="btn btn-orange diva" type="submit" name="submit" Value="Afficher"/>
+            </div>
+        </form>
 
-balise PHP ouvrante
+        <?php
 
-$multi = $_POST['multi'];
+        if (isset($_POST['submit'])) {
+            foreach ($_POST['check_list'] as $selected) {
+                echo "<br>";
+                echo "<p>Table du " . $selected . " :</p>";
 
-if (isset($multi)) {
-    echo "<p>Table du " . $multi . " :</p>";
-
-    for ($i = 1; $i <= 10; $i++) {
-        echo "<p>" . $i . "x" . $multi . "=" . $i * $multi . "</p>";
-    }
-} else {
-    echo "<p>Table du " . 0 . " :</p>";
-
-    for ($i = 1; $i <= 10; $i++) {
-        echo "<p>" . $i . "x" . 0 . "=" . $i * 0 . "</p>";
-    }
-}
-
-?> -->
-
-<form action="" method="post">
-<label class="heading">Sélectionnez les tables que vous voulez afficher : </label>
-<input type="checkbox" name="check_list[]" value="1"><label>1</label>
-<input type="checkbox" name="check_list[]" value="2"><label>2</label>
-<input type="checkbox" name="check_list[]" value="3"><label>3</label>
-<input type="checkbox" name="check_list[]" value="4"><label>4</label>
-<input type="checkbox" name="check_list[]" value="5"><label>5</label>
-<input type="checkbox" name="check_list[]" value="6"><label>6</label>
-<input type="checkbox" name="check_list[]" value="7"><label>7</label>
-<input type="checkbox" name="check_list[]" value="8"><label>8</label>
-<input type="checkbox" name="check_list[]" value="9"><label>9</label>
-<input type="checkbox" name="check_list[]" value="10"><label>10</label>
-<input type="submit" name="submit" Value="Submit"/>
-
-</form>
-
-<?php
-
-if (isset($_POST['submit'])) {
-    foreach ($_POST['check_list'] as $selected) {
-        echo "<p>Table du " . $selected . " :</p>";
-
-        for ($i = 1; $i <= 10; $i++) {
-            echo "<p>" . $i . "x" . $selected . "=" . $i * $selected . "</p>";
+                for ($i = 1; $i <= 10; $i++) {
+                    echo "<p>" . $i . "x" . $selected . "=" . $i * $selected . "</p>";
+                }
+            }
+        } else {
+            echo "<b>Veuillez choisir une ou plusieurs tables.</b>";
         }
-    }
-} else {
-    echo "<b>Veuillez cocher au moins une option.</b>";
-}
-?>
+        ?>
+    </div>
+
 </body>
+
 </html>
