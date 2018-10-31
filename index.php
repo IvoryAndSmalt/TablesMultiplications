@@ -20,11 +20,8 @@
 
 
     <div class="container">
-
-        <div class="row justify-content-center">
-            <h1 id="nomApplication" class="">
-                MULTIWOW
-            </h1>
+    <div class="row justify-content-center logo">
+            <img src="images/logo.png" alt="logo">
         </div>
         <div class="row justify-content-center">
             <p class="slogan col-10">

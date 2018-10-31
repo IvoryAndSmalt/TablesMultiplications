@@ -17,6 +17,9 @@
 <body>
 
     <div class="container">
+        <div class="row justify-content-center logo">
+            <img src="images/logo.png" alt="logo">
+        </div>
         <div class="row justify-content-center">
             <a href="index.php" class="diva btn btn-vert">Retour</a>
         </div>
@@ -48,12 +51,14 @@
 
         if (isset($_POST['submit'])) {
             foreach ($_POST['check_list'] as $selected) {
-                echo "<br>";
-                echo "<p>Table du " . $selected . " :</p>";
+                echo "<div class='col-6'>";
+                    echo "<p>Table du " . $selected . " :</p>";
 
-                for ($i = 1; $i <= 10; $i++) {
-                    echo "<p>" . $i . "x" . $selected . "=" . $i * $selected . "</p>";
-                }
+                    for ($i = 1; $i <= 10; $i++) {
+                        echo "<p>" . $i . "x" . $selected . "=" . $i * $selected . "</p>";
+                    }
+                echo "<br>";
+                echo "</div>";
             }
         } else {
             echo "<b>Veuillez choisir une ou plusieurs tables.</b>";

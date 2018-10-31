@@ -17,6 +17,9 @@
 
 <body>
     <div class="container">
+    <div class="row justify-content-center logo">
+            <img src="images/logo.png" alt="logo">
+        </div>
         <div class="row justify-content-center">
             <a href="index.php" class="diva btn btn-vert">Retour</a>
         </div>
